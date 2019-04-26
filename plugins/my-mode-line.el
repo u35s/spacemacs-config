@@ -5,7 +5,7 @@
 (spaceline-define-segment my-file-path
   ;; (length projectile-project-root))
   (file-relative-name buffer-file-name (projectile-project-root)))
-(spaceline-toggle-my-filepath-on)
+(spaceline-toggle-my-file-path-on)
 
 (spaceline-toggle-point-position-on)
 
