@@ -337,6 +337,7 @@ you should place your code here."
     ;; (setq-default fci-mode t)
     ;; (display-time-mode 1)
 
+    (add-to-list 'emms-player-list 'emms-player-mpv)
     (setq gofmt-command "goimports")
   )
 
