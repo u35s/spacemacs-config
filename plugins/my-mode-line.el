@@ -7,6 +7,8 @@
   (file-relative-name buffer-file-name (projectile-project-root)))
 (spaceline-toggle-my-filepath-on)
 
+(spaceline-toggle-point-position-on)
+
 (spaceline-compile
     ; left side
     '(((persp-name
@@ -17,8 +19,9 @@
        :priority 100)
       (anzu :priority 95)
       auto-compile
-      ((buffer-modified buffer-size buffer-id remote-host)
-       :priority 98)
+      (my-file-path line-column point-position)
+      ;; ((buffer-modified buffer-size buffer-id remote-host)
+       ;; :priority 98)
       (major-mode :priority 79)
       (process :when active)
       ((flycheck-error flycheck-warning flycheck-info)
@@ -35,18 +38,17 @@
       nyan-cat)
     ; right side
     '(which-function
-      (my-file-path)
       (my-datetime)
       (python-pyvenv :fallback python-pyenv)
       (purpose :priority 94)
       (battery :when active)
       (selection-info :priority 95)
       input-method
-      ((buffer-encoding-abbrev
-        point-position
-        line-column)
-       :separator " | "
-       :priority 96)
+      ;; ((buffer-encoding-abbrev
+      ;;   point-position
+      ;;   line-column)
+      ;;  :separator " | "
+      ;;  :priority 96)
       (global :when active)
       (buffer-position :priority 99)
       (hud :priority 99)))
