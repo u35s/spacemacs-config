@@ -333,6 +333,7 @@ you should place your code here."
     (load "conf-evil-clipboard")
     (load "my-mode-line")
     (load "my_macro")
+    (load "bhj-fonts")
     (require 'conf-evil-clipboard)
     ;; (setq-default go-tab-width 4)
     ;; (setq-default fci-mode t)
