@@ -67,15 +67,15 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+       gnuplot
    )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
        pdf-tools
-       gnuplot-mode
-       gnuplot
        go-complete
+       cnfonts
    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -150,7 +150,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("adobe-source-code-pro"
                                :size 13
                                :weight normal
                                :width normal
@@ -332,12 +332,14 @@ you should place your code here."
     ;; system clipboard
     (load "conf-evil-clipboard")
     (load "my-mode-line")
+    (load "my_macro")
     (require 'conf-evil-clipboard)
     ;; (setq-default go-tab-width 4)
     ;; (setq-default fci-mode t)
     ;; (display-time-mode 1)
-
+    (add-to-list 'default-frame-alist '(fullscreen . maximized))
     (setq gofmt-command "goimports")
+    (spacemacs/set-leader-keys "o y" 'youdao-dictionary-search-at-point+)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -351,7 +353,7 @@ you should place your code here."
  '(global-command-log-mode t)
  '(package-selected-packages
    (quote
-    (xterm-color unfill shell-pop org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim multi-term htmlize flyspell-correct-helm flyspell-correct eshell-z eshell-prompt-extras esh-help auto-dictionary gnuplot-mode gnuplot web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data disaster company-c-headers cmake-mode clang-format helm-gtags ggtags emms go-complete flycheck-pos-tip flycheck command-log-mode mmm-mode markdown-toc markdown-mode gh-md pdf-tools tablist helm-cscope xcscope youdao-dictionary names chinese-word-at-point pos-tip pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl orgit magit-gitflow magit-popup evil-magit smeargle helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy magit transient git-commit with-editor company-statistics company-go company auto-yasnippet yasnippet ac-ispell auto-complete go-guru go-eldoc go-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (cnfonts xterm-color unfill shell-pop org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim multi-term htmlize flyspell-correct-helm flyspell-correct eshell-z eshell-prompt-extras esh-help auto-dictionary gnuplot-mode gnuplot web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data disaster company-c-headers cmake-mode clang-format helm-gtags ggtags emms go-complete flycheck-pos-tip flycheck command-log-mode mmm-mode markdown-toc markdown-mode gh-md pdf-tools tablist helm-cscope xcscope youdao-dictionary names chinese-word-at-point pos-tip pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl orgit magit-gitflow magit-popup evil-magit smeargle helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy magit transient git-commit with-editor company-statistics company-go company auto-yasnippet yasnippet ac-ispell auto-complete go-guru go-eldoc go-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -359,5 +361,3 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  )
 
-(spacemacs/set-leader-keys "o y" 'youdao-dictionary-search-at-point+)
-(add-hook 'completion-at-point-functions 'go-complete-at-point)
