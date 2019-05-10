@@ -341,6 +341,7 @@ you should place your code here."
     (require 'conf-evil-clipboard)
     (load "my-mode-line")
     (load "my_macro")
+    (load "helm-swoop")
     (when window-system
       (load "bhj-fonts") )
   )
