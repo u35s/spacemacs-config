@@ -295,7 +295,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -341,7 +341,8 @@ you should place your code here."
     (require 'conf-evil-clipboard)
     (load "my-mode-line")
     (load "my_macro")
-    (load "bhj-fonts")
+    (when window-system
+      (load "bhj-fonts") )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
