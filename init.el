@@ -335,6 +335,7 @@ you should place your code here."
     (add-to-list 'default-frame-alist '(fullscreen . maximized))
     (setq gofmt-command "goimports")
     (spacemacs/set-leader-keys "o y" 'youdao-dictionary-search-at-point+)
+    (spacemacs/set-leader-keys "o c" 'cnfonts-reset-fontsize)
     (add-to-list 'load-path "~/.spacemacs.d/plugins/")
     ;; system clipboard
     (load "conf-evil-clipboard")
