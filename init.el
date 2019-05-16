@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     pdf-tools
      javascript
      html
      markdown
@@ -74,7 +75,6 @@ values."
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
-       pdf-tools
        go-complete
        cnfonts
    )
@@ -151,7 +151,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("adobe-source-code-pro"
+   dotspacemacs-deault-font '("adobe-source-code-pro"
                                :size 13
                                :weight normal
                                :width normal
@@ -341,10 +341,11 @@ you should place your code here."
     (require 'conf-evil-clipboard)
     (load "my-mode-line")
     (load "my_macro")
-    (load "helm-swoop")
-    (when window-system
-      (load "bhj-fonts") )
-  )
+    ;; (load "helm-swoop")
+    ;; (when window-system
+    ;;   (load "bhj-fonts") )
+    (load "cnfonts")
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
