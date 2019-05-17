@@ -1,5 +1,5 @@
 (spaceline-define-segment my-datetime
-  (shell-command-to-string "echo -n $(date '+%a %d %b %I:%M%p')"))
+  (shell-command-to-string "echo -n $(date '+%A %d %b %I:%M%p')"))
 (spaceline-toggle-my-datetime-on)
 
 (spaceline-define-segment my-file-path

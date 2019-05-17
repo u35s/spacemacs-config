@@ -332,6 +332,7 @@ you should place your code here."
     ;; (setq-default go-tab-width 4)
     ;; (setq-default fci-mode t)
     ;; (display-time-mode 1)
+    (setq powerline-default-separator 'nil)
     (add-to-list 'default-frame-alist '(fullscreen . maximized))
     (setq gofmt-command "goimports")
     (spacemacs/set-leader-keys "o y" 'youdao-dictionary-search-at-point+)
@@ -346,6 +347,7 @@ you should place your code here."
     ;; (when window-system
     ;;   (load "bhj-fonts") )
     (load "cnfonts")
+    (load "my-key")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
